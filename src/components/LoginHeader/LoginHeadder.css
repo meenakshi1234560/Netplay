@@ -1,0 +1,10 @@
+.LoginHeader{
+    position: absolute;
+    z-index: 100;
+
+}
+.LoginHeader img{
+    width: 200px;
+    padding: 4px;
+    margin: 10px;
+}
