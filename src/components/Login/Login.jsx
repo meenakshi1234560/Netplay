@@ -1,19 +1,89 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoginHeader from "../LoginHeader/LoginHeader";
 import "./Login.css";
 import validate from "../../utils/validation";
+import { auth } from "../../utils/firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  updateProfile,
+} from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser, removeUser } from "../../utils/userSlice";
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPwd, setConfirmPwd] = useState("");
-  const [err,setErr] = useState("")
+  const [err, setErr] = useState("");
+
   const handleClick = () => {
     setIsSignUp((prev) => !prev);
   };
-  const signIn = () => {
-    const isValid = validate(email, password,confirmPwd);
-    setErr(isValid)
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        console.log("sdsddddddddddd", user);
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/login");
+      }
+    });
+  }, []);
+  const signIn = async () => {
+    const errorMsg = validate(email, password, confirmPwd, isSignUp);
+    setErr(errorMsg);
+    if (errorMsg) return;
+
+    try {
+      if (isSignUp) {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password,
+        );
+
+        const user = userCredential.user;
+
+        await updateProfile(user, {
+          displayName: name,
+        });
+        const updatedUser = auth.currentUser;
+
+        dispatch(
+          addUser({
+            uid: updatedUser.uid,
+            email: updatedUser.email,
+            displayName: updatedUser.displayName,
+          }),
+        );
+
+        console.log("Updated user:", auth.currentUser);
+
+        navigate("/browse");
+      } else {
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password,
+        );
+
+        console.log("Signed in:", userCredential.user);
+
+        navigate("/browse");
+      }
+    } catch (error) {
+      setErr(error.code + " - " + error.message);
+    }
   };
 
   return (
@@ -27,6 +97,15 @@ const Login = () => {
         <div className="overlay"></div>
         <div className="form">
           {isSignUp ? <h4>Sign Up</h4> : <h4> Sign In</h4>}
+          {isSignUp && (
+            <input
+              type="text"
+              className="pwd"
+              placeholder=" Enter Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          )}
           <input
             type="text"
             className="email"
