@@ -12,6 +12,7 @@ import {
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../../utils/userSlice";
 import { useNavigate } from "react-router-dom";
+import { login_cover_img } from "../../utils/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const Login = () => {
     setIsSignUp((prev) => !prev);
   };
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unSunbscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
         console.log("sdsddddddddddd", user);
@@ -38,6 +39,9 @@ const Login = () => {
         navigate("/login");
       }
     });
+    return () => {
+      clearInterval(unSunbscribe);
+    };
   }, []);
   const signIn = async () => {
     const errorMsg = validate(email, password, confirmPwd, isSignUp);
@@ -90,10 +94,7 @@ const Login = () => {
     <div>
       <LoginHeader />
       <div className="login-bg">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/5efeb1fd-55d2-4799-8d38-e59e15858b9c/web/IN-en-20260427-TRIFECTA-perspective_0933b420-0cb6-4e67-8e9d-3224dc64b517_medium.jpg"
-          alt="NetFlix Logo"
-        />
+        <img src={login_cover_img} alt="NetFlix Logo" />
         <div className="overlay"></div>
         <div className="form">
           {isSignUp ? <h4>Sign Up</h4> : <h4> Sign In</h4>}
