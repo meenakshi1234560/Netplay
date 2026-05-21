@@ -27,3 +27,66 @@
     height: 44px;
     border-radius: 4px;
 }
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    padding-top: 10px;
+
+
+}
+
+.viddes {
+    margin-left: 40px;
+}
+
+.play {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: black;
+    background-color: rgba(109, 109, 110, 0.7);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 150px;
+    cursor: pointer;
+}
+
+.play-icon {
+    font-family: Arial, sans-serif;
+
+}
+
+.vidtitle {
+    font-size: 40px;
+}
+
+.overview {
+    font-size: 20px;
+    width: 400px;
+    font-weight: 450
+}
+
+.more-info {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: rgba(109, 109, 110, 0.7);
+    padding: 15px;
+    border-radius: 4px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.info-icon img {
+    width: 40px;
+    height: 40px;
+}

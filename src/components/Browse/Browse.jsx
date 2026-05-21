@@ -5,8 +5,13 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { user_avatar } from "../../utils/constants";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addNowPlayingMovies } from "../../utils/movieSlice";
+import nowPlayingMovies from "../hooks/nowPlayingMovies";
+import MainContainer from "./MainContainer";
+import SecondContainer from "./econdContainer";
 const Browse = () => {
-  const navigate = useNavigate();
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -16,15 +21,20 @@ const Browse = () => {
         Navigate("/error");
       });
   };
+  nowPlayingMovies();
   return (
-    <div className="browserHeader">
-      <LoginHeader browse={true} />
-      <div className="userSection">
-        <img src={user_avatar} />
-        <button className="signout" onClick={handleSignOut}>
-          Sign Out
-        </button>
+    <div>
+      <div className="browserHeader">
+        <LoginHeader browse={true} />
+        <div className="userSection">
+          <img src={user_avatar} />
+          <button className="signout" onClick={handleSignOut}>
+            Sign Out
+          </button>
+        </div>
       </div>
+      <MainContainer />
+      <SecondContainer />
     </div>
   );
 };

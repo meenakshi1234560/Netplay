@@ -6,3 +6,15 @@ export const login_cover_img =
 
 export const user_avatar =
   "https://occ-0-2663-2164.1.nflxso.net/dnm/api/v6/SO2HoVCx33X8phZh2pZZmQ4QgNY/AAAABWpJNRgiXm3RoNC6je8kELaOVH7MG_nZuuyJKeC8QOAyB6rij639Z3gcxi_y6mU5njsrGEsPcWjH9RMvSr8BgrD6o15aWXk.png?r=bd7";
+
+export const options = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMjEwYzc4NThjNTNhODFlMjhiNjBiNWU3M2M2NWMyYyIsIm5iZiI6MTc3ODc2NzY5NC41NTMsInN1YiI6IjZhMDVkNzRlZDVkNmEwNGQyZmRiMTkxYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.crzKFOf07I3tcph77CM2XV9w7t2tZv5UHPScPbyUkv8",
+  },
+};
+
+export const now_playing_vids_url =
+  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
