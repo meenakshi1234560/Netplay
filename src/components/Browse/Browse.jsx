@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../../utils/movieSlice";
 import nowPlayingMovies from "../hooks/nowPlayingMovies";
 import MainContainer from "./MainContainer";
-import SecondContainer from "./econdContainer";
+import SecondContainer from "./SecondContainer";
 const Browse = () => {
   const handleSignOut = () => {
     signOut(auth)

@@ -1,5 +1,4 @@
-import infoIcon from "../../assets/information.png"
-
+import infoIcon from "../../assets/information.png";
 
 const VideoTitle = ({ title, overview }) => {
   return (
@@ -12,10 +11,11 @@ const VideoTitle = ({ title, overview }) => {
           Play
         </button>
         <button className="more-info">
-          <span className="info-icon"><img src={infoIcon} /></span>
+          <span className="info-icon">
+            <img src={infoIcon} />
+          </span>
           More Info
         </button>
-        
       </div>
     </div>
   );
