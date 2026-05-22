@@ -31,7 +31,6 @@ const Login = () => {
     const unSunbscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
-        console.log("sdsddddddddddd", user);
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
         navigate("/browse");
       } else {
@@ -70,9 +69,6 @@ const Login = () => {
             displayName: updatedUser.displayName,
           }),
         );
-
-        console.log("Updated user:", auth.currentUser);
-
         navigate("/browse");
       } else {
         const userCredential = await signInWithEmailAndPassword(
@@ -80,9 +76,6 @@ const Login = () => {
           email,
           password,
         );
-
-        console.log("Signed in:", userCredential.user);
-
         navigate("/browse");
       }
     } catch (error) {
