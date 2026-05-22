@@ -8,9 +8,9 @@ import { user_avatar } from "../../utils/constants";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addNowPlayingMovies } from "../../utils/movieSlice";
-import nowPlayingMovies from "../hooks/nowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondContainer from "./SecondContainer";
+import useNowPlayingMovies from "../hooks/nowPlayingMovies";
 const Browse = () => {
   const handleSignOut = () => {
     signOut(auth)
@@ -21,7 +21,7 @@ const Browse = () => {
         Navigate("/error");
       });
   };
-  nowPlayingMovies();
+  useNowPlayingMovies();
   return (
     <div>
       <div className="browserHeader">

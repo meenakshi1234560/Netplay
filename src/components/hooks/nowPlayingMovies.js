@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { addNowPlayingMovies } from "../../utils/movieSlice";
 import { now_playing_vids_url, options } from "../../utils/constants";
 
-const nowPlayingMovies = () => {
+const useNowPlayingMovies = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const fetchMovies = async () => {
@@ -16,4 +16,4 @@ const nowPlayingMovies = () => {
     fetchMovies();
   }, []);
 };
-export default nowPlayingMovies;
+export default useNowPlayingMovies;
