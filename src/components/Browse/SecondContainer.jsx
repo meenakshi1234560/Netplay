@@ -1,7 +1,9 @@
+import MovieList from "./MovieList";
+
 const SecondContainer = () => {
   return (
-    <div>
-      <h1>Second</h1>
+    <div className="sec-cont">
+      <MovieList />
     </div>
   );
 };
