@@ -11,6 +11,9 @@ import { addNowPlayingMovies } from "../../utils/movieSlice";
 import MainContainer from "./MainContainer";
 import SecondContainer from "./SecondContainer";
 import useNowPlayingMovies from "../hooks/nowPlayingMovies";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
+import useTopRatedMovies from "../hooks/useTopRatedMovies";
 const Browse = () => {
   const handleSignOut = () => {
     signOut(auth)
@@ -22,6 +25,9 @@ const Browse = () => {
       });
   };
   useNowPlayingMovies();
+  usePopularMovies();
+  useUpcomingMovies();
+  useTopRatedMovies();
   return (
     <div>
       <div className="browserHeader">
