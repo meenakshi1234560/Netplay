@@ -7,7 +7,7 @@ const MovieCard = (props) => {
       <h4>{props?.title}</h4>
       <div className="movie_lists">
         {props?.movies?.map((movie) => (
-          <img src={IMG_Path + movie?.poster_path} />
+          <img  key = {movie?.id}src={IMG_Path + movie?.poster_path} />
         ))}
       </div>
     </div>

@@ -25,3 +25,9 @@ export const IMG_Path = "https://image.tmdb.org/t/p/original";
 export const upcoming_vid_url =
   "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
 export const toprated_url = "https://api.themoviedb.org/3/movie/top_rated";
+
+export const languages = [
+  { identifier: "en", name: "English" },
+  { identifier: "spanish", name: "Spanish" },
+  { identifier: "hindi", name: "Hindi" },
+];

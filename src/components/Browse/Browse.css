@@ -7,11 +7,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    z-index: 10;
-    background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.9),
-            rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0));
+    z-index: 30;
+    background: black;
 }
 
 .signout {
@@ -169,4 +166,78 @@
     margin-top: -80px;
     position: relative;
     z-index: 20;
+}
+
+.gpt-search {
+    border-radius: 4px;
+    background-color: #82A2BF;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.userSection select {
+
+    color: white;
+
+}
+
+.userSection option {
+
+    color: black;
+
+
+}
+
+.search img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.search form {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 26%;
+    width: 50%;
+}
+
+.searchBar {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.searchInput {
+    padding: 16px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 16px;
+    border: 2px solid black;
+    color: rgb(193, 17, 25);
+    font-weight: 600;
+}
+
+.searchBar button {
+    padding-left: 16px;
+    background-color: rgb(193, 17, 25);
+    padding: 16px;
+    border-radius: 4px;
+    margin-left: 4px;
+    height: 100%;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
 }
