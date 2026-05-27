@@ -16,7 +16,9 @@ const GptSearchPage = () => {
             type="text"
             placeholder={lang[selectedLang]?.wannaWatch}
           />
-          <button className="gptSearchBtn">{lang[selectedLang]?.search}</button>
+          <button className="gptSearchBtn" onClick={(e) => e.preventDefault()}>
+            {lang[selectedLang]?.search}
+          </button>
         </div>
       </form>
     </div>

@@ -132,6 +132,12 @@
     width: 12%;
     border-radius: 4px;
 
+
+}
+
+.movie_lists img:hover {
+    transform: scale(1.1);
+
 }
 
 .movie_lists {
